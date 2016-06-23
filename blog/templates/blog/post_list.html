@@ -1,21 +1,11 @@
-<html>
-  <head>
-    <title> Django Simple Blog!</title>
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-  </head>
-  <body>
-    <div>
-      <h1><a href="#">Django Simple Blog</a></h1>
-    </div>
-    {% for post in posts %}
-    <div>
-      <p>published:{{post.published_date}}</p>
-      <h1><a href="#">{{post.title}}</a></h1>
-      <p>{{post.text|linebreaks}}</p>
-    </div>
-    {% endfor%}
-  </body>
-</html>
+{% extends 'blog/base.html' %}
+{% block content %}
+ {% for post in posts %}
+  <div class="post">
+    <h1><a href="#">{{post.title}}</a></h1>
+    <p>published:{{post.published_date}}</p>
+    <p>{{post.text|linebreaks}}</p>
+  </div>
+  {% endfor %}
+  {% endblock %}
 
